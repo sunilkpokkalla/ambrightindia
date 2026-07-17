@@ -49,17 +49,17 @@ export default function ShaderBackdrop() {
       <ShaderAny style={layerStyle}>
         <SwirlAny
           style={layerStyle}
-          colorA="#FF3366"
-          colorB="#00E5FF"
+          colorA="#00E5FF"
+          colorB="#0055FF"
           detail={1.7}
         />
         <ChromaFlowAny
           style={layerStyle}
-          baseColor="#FF00AA"
-          downColor="#FFDD00"
-          leftColor="#00FFCC"
-          rightColor="#7000FF"
-          upColor="#FF4500"
+          baseColor="#00E5FF"
+          downColor="#0022FF"
+          leftColor="#00AAFF"
+          rightColor="#0055FF"
+          upColor="#00FFFF"
           momentum={13}
           radius={3.5}
         />
