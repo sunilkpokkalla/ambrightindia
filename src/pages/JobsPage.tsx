@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import RollButton from '../components/RollButton'
 
 // TODO: replace with live openings (from the WordPress export or your ATS)
 const OPENINGS = [

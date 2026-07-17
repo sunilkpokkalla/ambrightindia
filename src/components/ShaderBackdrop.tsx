@@ -8,6 +8,11 @@ const layerStyle: React.CSSProperties = {
   height: '100%',
 }
 
+const SwirlAny = Swirl as any
+const ChromaFlowAny = ChromaFlow as any
+const FlutedGlassAny = FlutedGlass as any
+const FilmGrainAny = FilmGrain as any
+
 /** Animated CSS fallback shown if WebGL / the shader runtime is unavailable. */
 export function ShaderFallback() {
   return (
@@ -41,13 +46,13 @@ export default function ShaderBackdrop() {
   return (
     <ShaderErrorBoundary>
       <div style={layerStyle}>
-        <Swirl
+        <SwirlAny
           style={layerStyle}
           colorA="#ffffff"
           colorB="#f0f0f0"
           detail={1.7}
         />
-        <ChromaFlow
+        <ChromaFlowAny
           style={layerStyle}
           baseColor="#ffffff"
           downColor="#2563EB"
@@ -57,7 +62,7 @@ export default function ShaderBackdrop() {
           momentum={13}
           radius={3.5}
         />
-        <FlutedGlass
+        <FlutedGlassAny
           style={layerStyle}
           aberration={0.61}
           angle={31}
@@ -70,7 +75,7 @@ export default function ShaderBackdrop() {
           softness={1}
           speed={0.15}
         />
-        <FilmGrain style={layerStyle} strength={0.05} />
+        <FilmGrainAny style={layerStyle} strength={0.05} />
       </div>
     </ShaderErrorBoundary>
   )
