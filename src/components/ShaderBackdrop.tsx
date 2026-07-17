@@ -1,5 +1,5 @@
 import { Component, type ReactNode } from 'react'
-import { Swirl, ChromaFlow, FlutedGlass, FilmGrain } from 'shaders/react'
+import { Shader, Swirl, ChromaFlow, FlutedGlass, FilmGrain } from 'shaders/react'
 
 const layerStyle: React.CSSProperties = {
   position: 'absolute',
@@ -8,6 +8,7 @@ const layerStyle: React.CSSProperties = {
   height: '100%',
 }
 
+const ShaderAny = Shader as any
 const SwirlAny = Swirl as any
 const ChromaFlowAny = ChromaFlow as any
 const FlutedGlassAny = FlutedGlass as any
@@ -45,7 +46,7 @@ class ShaderErrorBoundary extends Component<
 export default function ShaderBackdrop() {
   return (
     <ShaderErrorBoundary>
-      <div style={layerStyle}>
+      <ShaderAny style={layerStyle}>
         <SwirlAny
           style={layerStyle}
           colorA="#ffffff"
@@ -76,7 +77,7 @@ export default function ShaderBackdrop() {
           speed={0.15}
         />
         <FilmGrainAny style={layerStyle} strength={0.05} />
-      </div>
+      </ShaderAny>
     </ShaderErrorBoundary>
   )
 }
