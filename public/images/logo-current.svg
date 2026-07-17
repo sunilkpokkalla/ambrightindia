@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 190" fill="none">
+  <!-- Left leg of A -->
+  <line x1="100" y1="20" x2="38" y2="152" stroke="currentColor" stroke-width="16" stroke-linecap="round"/>
+  <!-- Right leg of A -->
+  <line x1="100" y1="20" x2="162" y2="152" stroke="currentColor" stroke-width="16" stroke-linecap="round"/>
+  <!-- Left crossbar + arrow tip -->
+  <polyline points="16,118 28,104 62,104" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Right crossbar + arrow tip -->
+  <polyline points="184,118 172,104 138,104" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Bottom chevron/V -->
+  <polyline points="76,158 100,138 124,158" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

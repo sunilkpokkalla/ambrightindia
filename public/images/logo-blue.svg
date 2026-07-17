@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90">
+  <path d="
+    M50 6
+    L24 70 L6 70 L2 76 L12 82 L28 74
+    L40 74 L50 62 L60 74 L72 74
+    L88 82 L98 76 L94 70 L76 70
+    L50 6Z
+    M41 52 L50 28 L59 52Z
+  " fill="#3B6098" fill-rule="evenodd"/>
+</svg>
