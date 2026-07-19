@@ -42,7 +42,7 @@ export interface PageDef {
 export const PAGES: PageDef[] = [
   {
     path: '/aboutus',
-    image: '/images/heroes/people.webp',
+    image: '/images/heroes/people.png',
     badge: 'About Us',
     title: 'A bright partner for people and businesses in tech.',
     intro:
@@ -91,7 +91,7 @@ export const PAGES: PageDef[] = [
   },
   {
     path: '/it-services',
-    image: '/images/heroes/code.webp',
+    image: '/images/heroes/code.png',
     badge: 'IT Consulting & Services',
     title: 'End-to-end IT consulting that moves the needle.',
     intro:
@@ -181,7 +181,7 @@ export const PAGES: PageDef[] = [
   },
   {
     path: '/technology-practices',
-    image: '/images/heroes/gears.webp',
+    image: '/images/heroes/gears.png',
     badge: 'Technology Practices',
     title: 'Deep practices, not shallow coverage.',
     intro:
@@ -222,7 +222,7 @@ export const PAGES: PageDef[] = [
   },
   {
     path: '/technology',
-    image: '/images/heroes/code.webp',
+    image: '/images/heroes/code.png',
     badge: 'Practice — Technology',
     title: 'Modern engineering, built to last.',
     intro:
@@ -254,7 +254,7 @@ export const PAGES: PageDef[] = [
   },
   {
     path: '/architecture',
-    image: '/images/heroes/stack.webp',
+    image: '/images/heroes/stack.png',
     badge: 'Practice — Architecture',
     title: 'Systems designed for where you are going.',
     intro:
@@ -286,7 +286,7 @@ export const PAGES: PageDef[] = [
   },
   {
     path: '/cloud',
-    image: '/images/heroes/cloud.webp',
+    image: '/images/heroes/cloud.png',
     badge: 'Practice — Cloud',
     title: 'Cloud that pays for itself.',
     intro:
@@ -324,7 +324,7 @@ export const PAGES: PageDef[] = [
   },
   {
     path: '/devops',
-    image: '/images/heroes/gears.webp',
+    image: '/images/heroes/gears.png',
     badge: 'Practice — DevOps',
     title: 'Ship faster. Break less.',
     intro:

@@ -101,7 +101,7 @@ export const POSTS: Post[] = [
   },
   {
     path: '/news/ambright-tech-llc-expands-employee-benefits-with-comprehensive-health-insurance-and-wellness-programs',
-    image: '/images/heroes/people.webp',
+    image: '/images/heroes/people.png',
     category: 'News',
     title:
       'AmBright Tech LLC Expands Employee Benefits with Comprehensive Health Insurance and Wellness Programs',
@@ -257,7 +257,7 @@ export const POSTS: Post[] = [
   },
   {
     path: '/blog/cloud-cost-optimization-checklist',
-    image: '/images/heroes/cloud.webp',
+    image: '/images/heroes/cloud.png',
     category: 'Blog',
     title: 'The Cloud Cost Optimization Checklist We Run on Every Engagement',
     excerpt:
@@ -273,7 +273,7 @@ export const POSTS: Post[] = [
   },
   {
     path: '/blog/hiring-for-ai-skills-what-actually-matters',
-    image: '/images/heroes/people.webp',
+    image: '/images/heroes/people.png',
     category: 'Blog',
     title: 'Hiring for AI Skills: What Actually Matters (And What Is Resume Glitter)',
     excerpt:
@@ -321,7 +321,7 @@ export const POSTS: Post[] = [
   },
   {
     path: '/blog/devops-maturity-self-assessment',
-    image: '/images/heroes/gears.webp',
+    image: '/images/heroes/gears.png',
     category: 'Blog',
     title: 'A 10-Minute DevOps Maturity Self-Assessment',
     excerpt:
