@@ -2,8 +2,8 @@ import { ArrowRight } from 'lucide-react'
 import { Link } from '../router'
 
 // Custom illustrations shipped with the site (swap for real media anytime)
-const MEDIA_1 = '/images/card-consulting.webp'
-const MEDIA_2 = '/images/card-workforce.webp'
+const MEDIA_1 = '/images/card-consulting.png'
+const MEDIA_2 = '/images/card-workforce.png'
 
 function LinkIcon() {
   return (

@@ -1,8 +1,8 @@
 import RollButton from './RollButton'
 
 // Custom illustrations shipped with the site (swap for real photos anytime)
-const IMG_SMALL = '/images/about-team.webp'
-const IMG_LARGE = '/images/about-collab.webp'
+const IMG_SMALL = '/images/about-team.png'
+const IMG_LARGE = '/images/about-collab.png'
 
 function AboutButton() {
   return (
