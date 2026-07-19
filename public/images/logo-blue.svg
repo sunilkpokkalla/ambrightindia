@@ -1,16 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="#325293" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Left Leg -->
-  <line x1="50" y1="12" x2="18" y2="92" />
-  
-  <!-- Right Leg -->
-  <line x1="50" y1="12" x2="82" y2="92" />
-  
-  <!-- Left Outer Spur -->
-  <line x1="31" y1="60" x2="12" y2="60" />
-  
-  <!-- Right Outer Spur -->
-  <line x1="69" y1="60" x2="88" y2="60" />
-  
-  <!-- Inner Floating Chevron -->
-  <path d="M 33 72 L 50 84 L 67 72" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path fill="#325293" stroke="#325293" stroke-width="2" stroke-linejoin="round" d="
+    M 44 5
+    L 56 5
+    L 78 60
+    L 92 60
+    L 96.8 72
+    L 82.8 72
+    L 92 95
+    L 72 95
+    L 50 40
+    L 28 95
+    L 8 95
+    L 17.2 72
+    L 3.2 72
+    L 8 60
+    L 22 60
+    Z
+  " />
+  <path fill="#325293" stroke="#325293" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="
+    M 35 70 
+    L 50 85 
+    L 65 70 
+    L 55 70 
+    L 50 75 
+    L 45 70 
+    Z
+  " />
 </svg>
