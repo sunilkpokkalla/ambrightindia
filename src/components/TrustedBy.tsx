@@ -1,7 +1,7 @@
-import React from 'react';
+
 import { 
   Building2, Monitor, HeartPulse, Wallet, Target, Network, Layers, ShieldCheck, Database, 
-  Cpu, Briefcase, Code, Terminal, Server, Globe2, Activity, Zap, Factory
+  Cpu, Briefcase, Code, Terminal, Globe2, Activity, Zap, Factory
 } from 'lucide-react';
 
 const CLIENTS = [
