@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Link } from '../router'
+import { SEO } from '../components/SEO'
 import type { Post } from '../data/posts'
 import { POSTS } from '../data/posts'
 
@@ -12,6 +13,7 @@ export default function ArticlePage({ post }: { post: Post }) {
 
   return (
     <div>
+      <SEO title={post.title} description={post.excerpt} image={post.image} url={`http://www.ambrighttech.com${post.path}`} />
       <div className="bg-[#EFEFEF]">
         <Navbar />
         <div className="mx-auto w-full max-w-[1440px] px-5 pb-12 pt-10 sm:px-8 sm:pb-16 sm:pt-14 lg:px-12">

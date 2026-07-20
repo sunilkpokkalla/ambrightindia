@@ -3,11 +3,13 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import RollButton from '../components/RollButton'
 import { Link } from '../router'
+import { SEO } from '../components/SEO'
 import type { PageDef } from '../data/pages'
 
 export default function ContentPage({ page }: { page: PageDef }) {
   return (
     <div>
+      <SEO title={page.title} description={page.intro} image={page.image} url={`http://www.ambrighttech.com${page.path}`} />
       <div className="bg-[#EFEFEF]">
         <Navbar />
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-10 px-5 pb-14 pt-10 sm:px-8 sm:pb-16 sm:pt-14 lg:grid-cols-[1fr_42%] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-16">

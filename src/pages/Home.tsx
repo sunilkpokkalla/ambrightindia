@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { SEO } from '../components/SEO'
 import Hero from '../components/Hero'
 import About from '../components/About'
 import Work from '../components/Work'
@@ -44,6 +45,7 @@ function Explore() {
               <img
                 src={e.img}
                 alt={e.label}
+                loading="lazy"
                 className="w-full object-cover aspect-[2/1] transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-[1.08]"
               />
               <span className="mx-6 mt-5 flex items-center justify-between">
@@ -67,12 +69,12 @@ function Explore() {
 }
 
 const OUR_PRODUCTS = [
-  { name: 'NoMenu', slug: 'nomenu', desc: 'Digital ordering, reimagined — no app download required.', color: '#0891B2' },
+  { name: 'NoMenu', slug: 'nomenu', desc: 'Digital ordering, reimagined — no app download required.', color: '#0891B2', logo: '/images/nomenu-logo.svg' },
   { name: 'RxRemind', slug: 'rxremind', desc: 'Medication reminders that actually work.', color: '#059669' },
   { name: 'InGarage', slug: 'ingarage', desc: 'Vehicle maintenance made effortless.', color: '#D97706' },
   { name: 'SlotMyInterview', slug: 'slotmyinterview', desc: 'Interview scheduling that eliminates the back-and-forth.', color: '#E11D48' },
   { name: 'Alavatu', slug: 'alavatu', desc: 'Think bigger — ideas deserve more than a notes app.', color: '#7C3AED' },
-  { name: 'MuMMum Tracker', slug: 'mummum-tracker', desc: 'Every feeding, every nap, every milestone — beautifully tracked.', color: '#2563EB' },
+  { name: 'MuMMum Tracker', slug: 'mummum-tracker', desc: 'Every feeding, every nap, every milestone — beautifully tracked.', color: '#2563EB', logo: '/images/mummum-logo.png' },
 ]
 
 function Innovation() {
@@ -92,37 +94,43 @@ function Innovation() {
             Products we built in-house.
           </h2>
           <p className="mt-4 max-w-[640px] text-[15px] leading-[1.65] text-gray-600 sm:text-[17px]">
-            Six products from AmBrightTech Labs — born from real problems in our own operations, now available to the world.
+            Six products from AmBrightTech Labs — born from real problems, now available to the world.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-5 px-5 md:grid-cols-2 lg:grid-cols-3 sm:gap-6 sm:px-8 lg:px-12">
-          {OUR_PRODUCTS.map((p) => (
-            <Link
-              key={p.slug}
-              to={'/products/' + p.slug}
-              className="card-lift group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] sm:p-7"
-            >
-              <span
-                className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl text-[15px] font-bold text-white"
-                style={{ backgroundColor: p.color }}
+        <div className="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto px-5 pb-8 sm:px-8 lg:px-12">
+          <div className="flex gap-5 sm:gap-6">
+            {OUR_PRODUCTS.map((p) => (
+              <Link
+                key={p.slug}
+                to={'/products/' + p.slug}
+                className="card-lift group flex w-[280px] shrink-0 snap-start flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] sm:w-[320px] sm:p-7 lg:w-[calc((1440px-6rem-5*1.5rem)/6)]"
               >
-                {p.name.charAt(0)}
-              </span>
-              <h3 className="text-[17px] font-semibold text-gray-900 sm:text-[18px]">
-                {p.name}
-              </h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-gray-600">
-                {p.desc}
-              </p>
-              <span className="mt-4 flex items-center gap-2 text-[13px] font-medium text-gray-900">
-                Learn more
-                <ArrowRight
-                  size={14}
-                  className="transition-transform duration-300 ease-in-out -rotate-45 group-hover:rotate-0"
-                />
-              </span>
-            </Link>
-          ))}
+                {p.logo ? (
+                  <img src={p.logo} alt={`${p.name} logo`} loading="lazy" className="mb-4 h-10 w-10 shrink-0 rounded-xl object-contain" />
+                ) : (
+                  <span
+                    className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl text-[15px] font-bold text-white shrink-0"
+                    style={{ backgroundColor: p.color }}
+                  >
+                    {p.name.charAt(0)}
+                  </span>
+                )}
+                <h3 className="text-[17px] font-semibold text-gray-900 sm:text-[18px]">
+                  {p.name}
+                </h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-gray-600 line-clamp-3">
+                  {p.desc}
+                </p>
+                <span className="mt-auto pt-4 flex items-center gap-2 text-[13px] font-medium text-gray-900">
+                  Learn more
+                  <ArrowRight
+                    size={14}
+                    className="transition-transform duration-300 ease-in-out -rotate-45 group-hover:rotate-0"
+                  />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
         <div className="mt-10 px-5 sm:mt-14 sm:px-8 lg:px-12">
           <Link
@@ -182,6 +190,7 @@ function NewsPreview() {
                 <img
                   src={p.image}
                   alt={p.title}
+                  loading="lazy"
                   className="w-full object-cover aspect-[2/1] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105"
                 />
               )}
@@ -212,6 +221,7 @@ function NewsPreview() {
 export default function Home() {
   return (
     <div>
+      <SEO />
       <Hero />
       <TrustedBy />
       <About />

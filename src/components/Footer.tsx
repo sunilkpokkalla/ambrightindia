@@ -99,6 +99,9 @@ export default function Footer() {
             <p className="mt-3 text-[13px] text-gray-600">
               E-Verify certified employer
             </p>
+            <div className="mt-6">
+              <img src="/images/gptw-badge.webp" alt="Great Place To Work Certified 2023" className="w-[72px] sm:w-[84px] object-contain" />
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5 lg:gap-10">
             {COLUMNS.map((col) => (

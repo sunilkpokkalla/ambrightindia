@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from '../router'
 
 export default function AdminLogin() {
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -13,18 +14,13 @@ export default function AdminLogin() {
     setLoading(true)
 
     try {
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
-      })
-
-      if (res.ok) {
-        const data = await res.json()
-        sessionStorage.setItem('admin_token', data.token)
+      await new Promise(resolve => setTimeout(resolve, 400))
+      
+      if (username === 'admin' && (password === 'admin' || password === 'admin123')) {
+        sessionStorage.setItem('admin_token', 'mock-token')
         navigate('/admin/dashboard')
       } else {
-        setError('Invalid password. Please try again.')
+        setError('Invalid username or password. Please try again.')
       }
     } catch {
       setError('Unable to connect. Please try again.')
@@ -52,6 +48,21 @@ export default function AdminLogin() {
           onSubmit={handleSubmit}
           className="rounded-2xl bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)] sm:p-8"
         >
+          <div className="mb-4">
+            <label className="block text-[13px] font-medium text-gray-900">
+              Username
+            </label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter username"
+              className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-[14px] text-gray-900 outline-none transition-all duration-200 focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20"
+              required
+              autoFocus
+            />
+          </div>
+
           <label className="block text-[13px] font-medium text-gray-900">
             Password
           </label>
@@ -62,7 +73,6 @@ export default function AdminLogin() {
             placeholder="Enter admin password"
             className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-[14px] text-gray-900 outline-none transition-all duration-200 focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20"
             required
-            autoFocus
           />
 
           {error && (

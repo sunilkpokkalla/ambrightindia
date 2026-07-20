@@ -1,3 +1,5 @@
+/// <reference types="@cloudflare/workers-types" />
+
 /**
  * POST /api/apply
  * Handles job applications — receives form data with resume file,
@@ -75,9 +77,14 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     // Attach resume if present
     if (resume) {
       const buffer = await resume.arrayBuffer()
-      const base64 = btoa(
-        String.fromCharCode(...new Uint8Array(buffer))
-      )
+      const bytes = new Uint8Array(buffer)
+      let binary = ''
+      // Process in chunks to avoid max call stack size and remain fast
+      const chunkSize = 8192
+      for (let i = 0; i < bytes.length; i += chunkSize) {
+        binary += String.fromCharCode.apply(null, Array.from(bytes.subarray(i, i + chunkSize)))
+      }
+      const base64 = btoa(binary)
       mailPayload.personalizations[0].attachments = [
         {
           filename: resume.name,

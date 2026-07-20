@@ -1,12 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 190" fill="none">
-  <!-- Left leg of A -->
-  <line x1="100" y1="20" x2="38" y2="152" stroke="#3E6295" stroke-width="16" stroke-linecap="round"/>
-  <!-- Right leg of A -->
-  <line x1="100" y1="20" x2="162" y2="152" stroke="#3E6295" stroke-width="16" stroke-linecap="round"/>
-  <!-- Left crossbar + arrow tip -->
-  <polyline points="16,118 28,104 62,104" stroke="#3E6295" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- Right crossbar + arrow tip -->
-  <polyline points="184,118 172,104 138,104" stroke="#3E6295" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- Bottom chevron/V -->
-  <polyline points="76,158 100,138 124,158" stroke="#3E6295" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path fill="#325293" stroke="#325293" stroke-width="2" stroke-linejoin="round" d="
+    M 44 5
+    L 56 5
+    L 78 60
+    L 92 60
+    L 96.8 72
+    L 82.8 72
+    L 92 95
+    L 72 95
+    L 50 40
+    L 28 95
+    L 8 95
+    L 17.2 72
+    L 3.2 72
+    L 8 60
+    L 22 60
+    Z
+  " />
+  <path fill="#325293" stroke="#325293" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="
+    M 35 70 
+    L 50 85 
+    L 65 70 
+    L 55 70 
+    L 50 75 
+    L 45 70 
+    Z
+  " />
 </svg>

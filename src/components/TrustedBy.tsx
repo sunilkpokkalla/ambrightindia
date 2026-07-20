@@ -1,29 +1,47 @@
-
-import { 
-  Building2, Monitor, HeartPulse, Wallet, Target, Network, Layers, ShieldCheck, Database, 
-  Cpu, Briefcase, Code, Terminal, Globe2, Activity, Zap, Factory
-} from 'lucide-react';
+import { useState } from 'react';
 
 const CLIENTS = [
-  { name: 'Behguo', icon: Globe2 },
-  { name: 'DirectTire', icon: Factory },
-  { name: 'Johnson & Johnson', icon: HeartPulse },
-  { name: 'Microsoft', icon: Monitor },
-  { name: 'Medline', icon: Activity },
-  { name: 'Mr. Cooper', icon: Building2 },
-  { name: 'Sony', icon: Target },
-  { name: 'Amex', icon: Wallet },
-  { name: 'Medical Mutual', icon: ShieldCheck },
-  { name: 'Health Partners', icon: HeartPulse },
-  { name: 'TenTek', icon: Network },
-  { name: 'Elliassan Group', icon: Layers },
-  { name: 'Amzech', icon: Cpu },
-  { name: 'TechStar', icon: Zap },
-  { name: 'IntraEdge', icon: Database },
-  { name: 'Amplified Sourcing', icon: Briefcase },
-  { name: 'TCS', icon: Terminal },
-  { name: 'Artech', icon: Code },
+  { name: 'Beghou', domain: 'beghouconsulting.com' },
+  { name: 'DirectTire', domain: 'directtire.com' },
+  { name: 'Johnson & Johnson', domain: 'jnj.com' },
+  { name: 'Microsoft', domain: 'microsoft.com' },
+  { name: 'Medline', domain: 'medline.com' },
+  { name: 'Mr. Cooper', domain: 'mrcooper.com' },
+  { name: 'Sony', domain: 'sony.com' },
+  { name: 'Amex', domain: 'americanexpress.com' },
+  { name: 'Medical Mutual', domain: 'medmutual.com' },
+  { name: 'Health Partners', domain: 'healthpartners.com' },
+  { name: 'TenTek', domain: 'tentek.com' },
+  { name: 'Eliassen Group', domain: 'eliassen.com' },
+  { name: 'Amzech', domain: 'amzech.com' }, // or amitech
+  { name: 'TechStar', domain: 'techstars.com' },
+  { name: 'IntraEdge', domain: 'intraedge.com' },
+  { name: 'Amplified Sourcing', domain: 'amplifiedsourcing.com' },
+  { name: 'TCS', domain: 'tcs.com' },
+  { name: 'Artech', domain: 'artech.com' },
 ];
+
+function ClientLogo({ name, domain }: { name: string; domain: string }) {
+  const [imgError, setImgError] = useState(false);
+  const logoUrl = `https://logo.clearbit.com/${domain}`;
+
+  return (
+    <div className="flex items-center justify-center gap-2 pr-12 sm:pr-20 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+      {!imgError ? (
+        <img
+          src={logoUrl}
+          alt={name}
+          className="h-8 max-w-[120px] object-contain"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <span className="whitespace-nowrap text-[22px] font-extrabold tracking-tight text-gray-800">
+          {name}
+        </span>
+      )}
+    </div>
+  );
+}
 
 export default function TrustedBy() {
   // Duplicate the list to allow for seamless infinite scrolling
@@ -45,12 +63,7 @@ export default function TrustedBy() {
 
         <div className="flex w-max animate-marquee items-center group-hover:[animation-play-state:paused]">
           {duplicatedClients.map((client, i) => (
-            <div key={i} className="flex items-center gap-2.5 pr-12 sm:pr-20 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
-              <client.icon size={26} className="text-gray-700" strokeWidth={1.5} />
-              <span className="whitespace-nowrap text-[22px] font-extrabold tracking-tight text-gray-800">
-                {client.name}
-              </span>
-            </div>
+            <ClientLogo key={i} name={client.name} domain={client.domain} />
           ))}
         </div>
       </div>

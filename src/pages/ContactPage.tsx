@@ -1,11 +1,12 @@
 import { ArrowRight, Clock } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { SEO } from '../components/SEO'
 
 export default function ContactPage({
   badge = 'Contact',
   title = 'Let\'s build something bright.',
-  intro = 'Hiring, consulting, careers or anything else — we are here to assist with your inquiries.',
+  intro = 'Hiring, consulting, product development, or careers — tell us what you need and we\'ll get right back to you with the right expertise.',
 }: {
   badge?: string
   title?: string
@@ -13,6 +14,7 @@ export default function ContactPage({
 }) {
   return (
     <div>
+      <SEO title={title} description={intro} url="http://www.ambrighttech.com/contact" />
       <div className="bg-[#EFEFEF]">
         <Navbar />
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-10 px-5 pb-14 pt-10 sm:px-8 sm:pb-16 sm:pt-14 lg:grid-cols-[1fr_42%] lg:gap-14 lg:px-12 lg:pb-20">
@@ -38,33 +40,54 @@ export default function ContactPage({
       {/* Contact info + phone */}
       <section className="bg-white py-14 sm:py-16 lg:py-24">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-5 px-5 md:grid-cols-3 sm:gap-6 sm:px-8 lg:px-12">
+          {/* Email Card (Updated with list) */}
+          <div className="group flex flex-col gap-3 rounded-2xl border border-gray-200 p-6 transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] sm:p-7">
+            <span className="mb-2 text-[13px] font-medium text-gray-600">Email</span>
+            
+            <div className="flex flex-col gap-4">
+              <div>
+                <span className="block text-[12px] font-medium text-gray-500">General information</span>
+                <a href="mailto:contact@ambrighttech.com" className="text-[14px] font-medium text-gray-900 transition-colors hover:text-[#2563EB]">
+                  contact@ambrighttech.com
+                </a>
+              </div>
+              
+              <div>
+                <span className="block text-[12px] font-medium text-gray-500">Employment verification</span>
+                <a href="mailto:employmentverification@ambrighttech.com" className="text-[14px] font-medium text-gray-900 transition-colors hover:text-[#2563EB]">
+                  employmentverification@ambrighttech.com
+                </a>
+              </div>
+
+              <div>
+                <span className="block text-[12px] font-medium text-gray-500">Inquiry about your W2</span>
+                <a href="mailto:hr@ambrighttech.com" className="text-[14px] font-medium text-gray-900 transition-colors hover:text-[#2563EB]">
+                  hr@ambrighttech.com
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          {/* Schedule a Call Card */}
           <a
-            href="mailto:contact@ambrighttech.com"
-            className="group flex flex-col gap-3 rounded-2xl border border-gray-200 p-6 transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] sm:p-7"
+            href="mailto:contact@ambrighttech.com?subject=Schedule a Strategy Call"
+            className="group flex flex-col gap-3 rounded-2xl border border-gray-200 bg-[#F8FAFC] p-6 transition-all duration-300 hover:border-[#3B82F6] hover:shadow-[0_4px_16px_rgba(59,130,246,0.12)] sm:p-7"
           >
-            <span className="text-[13px] font-medium text-gray-600">Email</span>
-            <span className="text-[17px] font-semibold text-gray-900 sm:text-[18px]">
-              contact@ambrighttech.com
+            <span className="mb-1 flex h-10 w-10 items-center justify-center rounded-full bg-[#E0E7FF] text-[#4F46E5]">
+              <Clock size={20} />
             </span>
-            <span className="mt-1 flex items-center gap-2 text-[13px] font-medium text-gray-900">
-              Write to us
+            <span className="text-[17px] font-semibold text-gray-900 sm:text-[18px]">
+              Schedule a Call
+            </span>
+            <span className="text-[14px] leading-relaxed text-gray-600">
+              Book a 30-minute discovery session with our consulting team to discuss your IT strategy.
+            </span>
+            <span className="mt-auto pt-4 flex items-center gap-2 text-[13px] font-medium text-[#2563EB]">
+              Book meeting
               <ArrowRight
                 size={14}
-                className="transition-transform duration-300 ease-in-out -rotate-45 group-hover:rotate-0"
+                className="transition-transform duration-300 ease-in-out group-hover:translate-x-1"
               />
-            </span>
-          </a>
-          <a
-            href="tel:+14693106281"
-            className="group flex flex-col gap-3 rounded-2xl border border-gray-200 p-6 transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] sm:p-7"
-          >
-            <span className="text-[13px] font-medium text-gray-600">Phone</span>
-            <span className="text-[17px] font-semibold text-gray-900 sm:text-[18px]">
-              +1 (469) 310 6281
-            </span>
-            <span className="flex items-center gap-1.5 text-[13px] text-gray-600">
-              <Clock size={14} />
-              9 AM – 5 PM CST
             </span>
           </a>
           <div className="flex flex-col gap-3 rounded-2xl border border-gray-200 p-6 sm:p-7">
@@ -93,6 +116,14 @@ export default function ContactPage({
                 className="text-[14px] font-medium text-gray-900 transition-colors duration-300 hover:text-gray-500"
               >
                 Instagram — @ambrighttech
+              </a>
+              <a
+                href="http://x.com/ambrighttech"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[14px] font-medium text-gray-900 transition-colors duration-300 hover:text-gray-500"
+              >
+                X — @ambrighttech
               </a>
             </div>
           </div>
@@ -159,6 +190,8 @@ export default function ContactPage({
               </span>
             </div>
           </div>
+          
+
         </div>
       </section>
 

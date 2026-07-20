@@ -7,15 +7,18 @@ import JobsPage from './pages/JobsPage'
 import ContactPage from './pages/ContactPage'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
+import JobPostPage from './pages/JobPostPage'
 import NotFound from './pages/NotFound'
 import { getAnyPage, ALL_PAGES } from './data/catalog'
 import { getPost, POSTS } from './data/posts'
+import { getJob, ALL_JOBS } from './data/jobs'
 
 const STATIC_ROUTES = ['/', '/blog', '/2025/07', '/job-openings', '/contact', '/contact-us', '/admin', '/admin/dashboard']
 const KNOWN_PATHS = new Set([
   ...STATIC_ROUTES,
   ...ALL_PAGES.map((p) => p.path),
   ...POSTS.map((p) => p.path),
+  ...ALL_JOBS.map((j) => `/jobs/${j.slug}`),
 ])
 
 function Routes() {
@@ -37,6 +40,9 @@ function Routes() {
     )
 
   if (path === '/job-openings') return <JobsPage />
+
+  const job = getJob(path)
+  if (job) return <JobPostPage job={job} />
 
   if (path === '/contact')
     return (

@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Link } from '../router'
+import { SEO } from '../components/SEO'
 import { POSTS } from '../data/posts'
 
 export default function BlogIndex({
@@ -20,6 +21,7 @@ export default function BlogIndex({
 
   return (
     <div>
+      <SEO title={title} description={intro} url="http://www.ambrighttech.com/blog" />
       <div className="bg-[#EFEFEF]">
         <Navbar />
         <div className="mx-auto w-full max-w-[1440px] px-5 pb-12 pt-10 sm:px-8 sm:pb-16 sm:pt-14 lg:px-12">
@@ -48,6 +50,7 @@ export default function BlogIndex({
                   <img
                     src={p.image}
                     alt={p.title}
+                    loading="lazy"
                     className="w-full object-cover aspect-[2/1] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105"
                   />
                 )}

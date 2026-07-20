@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from '../router'
 import { ArrowRight } from 'lucide-react'
+import { POSTS } from '../data/posts'
 
 interface Post {
   id: string
@@ -18,21 +19,49 @@ function getToken() {
   return sessionStorage.getItem('admin_token') || ''
 }
 
+// Mock database for frontend-only usage
+let mockDb = POSTS.map((p, i) => ({
+  id: String(i),
+  title: p.title,
+  category: p.category as 'Blog' | 'News',
+  excerpt: p.excerpt,
+  body: p.body.join('\n\n'),
+  image: p.image || '',
+  author: 'Admin',
+  date: new Date().toISOString().split('T')[0],
+  published: true
+}))
+
 async function apiFetch(path: string, opts: RequestInit = {}) {
-  const res = await fetch(path, {
-    ...opts,
-    headers: {
-      ...opts.headers,
-      Authorization: 'Bearer ' + getToken(),
-      'Content-Type': 'application/json',
-    },
-  })
-  if (res.status === 401) {
+  await new Promise(resolve => setTimeout(resolve, 300))
+  
+  if (!getToken()) {
     sessionStorage.removeItem('admin_token')
     window.location.hash = '#/admin'
     throw new Error('Session expired')
   }
-  return res
+
+  if (path === '/api/posts' && (!opts.method || opts.method === 'GET')) {
+    return { ok: true, json: async () => ({ posts: mockDb }) } as any
+  }
+  
+  if (path === '/api/posts' && opts.method === 'POST') {
+    const post = JSON.parse(opts.body as string)
+    if (post.id) {
+      mockDb = mockDb.map(p => p.id === post.id ? post : p)
+    } else {
+      mockDb.unshift({ ...post, id: String(Date.now()) })
+    }
+    return { ok: true } as any
+  }
+
+  if (path.startsWith('/api/posts/') && opts.method === 'DELETE') {
+    const id = path.split('/').pop()
+    mockDb = mockDb.filter(p => p.id !== id)
+    return { ok: true } as any
+  }
+
+  return { ok: false, status: 404 } as any
 }
 
 /* ─── Post Editor ─── */

@@ -2,30 +2,9 @@ import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-
-// TODO: replace with live openings (from the WordPress export or your ATS)
-const OPENINGS = [
-  {
-    title: 'Senior Java Developer',
-    type: 'Contract',
-    location: 'Dallas–Fort Worth, TX (Hybrid)',
-  },
-  {
-    title: 'Cloud Engineer (AWS)',
-    type: 'Contract-to-hire',
-    location: 'Remote (US)',
-  },
-  {
-    title: 'Data Analyst',
-    type: 'Direct hire',
-    location: 'McKinney, TX',
-  },
-  {
-    title: 'DevOps Engineer',
-    type: 'Contract',
-    location: 'Remote (US)',
-  },
-]
+import { Link } from '../router'
+import { SEO } from '../components/SEO'
+import { ALL_JOBS } from '../data/jobs'
 
 const INPUT_CLASS =
   'w-full rounded-xl border border-gray-200 px-4 py-3 text-[14px] text-gray-900 outline-none transition-all duration-200 focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20'
@@ -208,6 +187,7 @@ function ApplicationForm() {
 export default function JobsPage() {
   return (
     <div>
+      <SEO title="Job Openings" description="Explore job openings across AmBrightTech's client base and consulting practices." url="http://www.ambrighttech.com/job-openings" />
       <div className="bg-[#EFEFEF]">
         <Navbar />
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-10 px-5 pb-12 pt-10 sm:px-8 sm:pb-16 sm:pt-14 lg:grid-cols-[1fr_42%] lg:gap-14 lg:px-12">
@@ -235,10 +215,10 @@ export default function JobsPage() {
       <section className="bg-white py-14 sm:py-16 lg:py-20">
         <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col gap-4">
-            {OPENINGS.map((job) => (
-              <a
+            {ALL_JOBS.map((job) => (
+              <Link
                 key={job.title}
-                href={`mailto:contact@ambrighttech.com?subject=Application: ${encodeURIComponent(job.title)}`}
+                to={`/jobs/${job.slug}`}
                 className="group flex flex-col gap-2 rounded-2xl border border-gray-200 p-6 transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] sm:flex-row sm:items-center sm:justify-between sm:p-7"
               >
                 <div className="flex flex-col gap-1">
@@ -255,7 +235,7 @@ export default function JobsPage() {
                     <ArrowRight size={14} className="text-white" />
                   </span>
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
 
