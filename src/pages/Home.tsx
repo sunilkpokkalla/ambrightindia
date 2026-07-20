@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Work from '../components/Work'
 import Footer from '../components/Footer'
+import TrustedBy from '../components/TrustedBy'
 import { Link } from '../router'
 import { POSTS } from '../data/posts'
 
@@ -212,6 +213,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
+      <TrustedBy />
       <About />
       <Work />
       <Explore />
