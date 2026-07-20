@@ -13,7 +13,8 @@ const CLIENTS = [
   { name: 'Health Partners', domain: 'healthpartners.com' },
   { name: 'TenTek', domain: 'tentek.com' },
   { name: 'Eliassen Group', domain: 'eliassen.com' },
-  { name: 'Amzech', domain: 'amzech.com' }, // or amitech
+  { name: 'Amazech', domain: 'amazech.com' },
+  { name: 'Toyota', domain: 'toyota.com' },
   { name: 'TechStar', domain: 'techstars.com' },
   { name: 'IntraEdge', domain: 'intraedge.com' },
   { name: 'Amplified Sourcing', domain: 'amplifiedsourcing.com' },
